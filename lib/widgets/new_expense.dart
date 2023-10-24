@@ -72,7 +72,7 @@ class _NewExpenseState extends State<NewExpense> {
 
   @override
   void dispose() {
-    //usuniecie kontrolera - jak nie usuniemy go gdy widget nie jest widoczny to on w tle bedzie caly czas istnial
+    //have to delete controllers - otherwise they will be still working in the background
     _titleController.dispose();
     _amountController.dispose();
     super.dispose();
