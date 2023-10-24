@@ -15,6 +15,10 @@ class ExpensesList extends StatelessWidget {
       itemCount: expenses.length,
       itemBuilder: (ctx, index) => Dismissible(
           // Dismissible - swipe effect (for example for deleting items)
+          background: Container(
+            color: Theme.of(context).colorScheme.error,
+            margin: Theme.of(context).cardTheme.margin,
+          ),
           onDismissed: (direction) {
             onRemoveExpense(expenses[index]);
           }, // function called after swipe
