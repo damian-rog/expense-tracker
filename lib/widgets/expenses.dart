@@ -51,9 +51,28 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
+    final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.remove(expense);
     });
+    ScaffoldMessenger.of(context)
+        .clearSnackBars(); //method to remove previous ScaffoldMessenger (without it if you removed for example 2+ items, the messegas will appers one after the other, so it can take some time)
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text('Expense removed!'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(
+              () {
+                _registeredExpenses.insert(expenseIndex, expense);
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   @override
