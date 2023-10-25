@@ -42,6 +42,7 @@ class _NewExpenseState extends State<NewExpense> {
 
   void _showDialog() {
     if (Platform.isIOS) {
+      //checking on which platform app is running currently
       showCupertinoDialog(
         context: context,
         builder: (ctx) => CupertinoAlertDialog(
