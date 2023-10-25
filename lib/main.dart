@@ -28,9 +28,6 @@ void main() {
           color: kDarkColorScheme.secondaryContainer,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
-        appBarTheme: const AppBarTheme().copyWith(
-          centerTitle: false,
-        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: kDarkColorScheme.primaryContainer,
@@ -45,7 +42,6 @@ void main() {
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
-          centerTitle: false,
         ),
         // for example: by this next line you can modify styles of all Card widgets in whole app
         cardTheme: const CardTheme().copyWith(
@@ -65,7 +61,7 @@ void main() {
               ),
             ),
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       home: const Expenses(),
     ),
   );
